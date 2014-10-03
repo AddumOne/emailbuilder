@@ -1,0 +1,40 @@
+<section data-ng-controller="EmailsController" data-ng-init="findOne()">
+    <div class="row">
+    <div class="page-header">
+        <div>
+        <h1 data-ng-bind="email.name"></h1>
+        <small>
+            <em class="text-muted">
+                Posted on
+                <span data-ng-bind="email.created | date:'mediumDate'"></span>
+                by
+                <span data-ng-bind="email.user.displayName"></span>
+            </em>
+        </small>
+        </div>
+        <div class="pull-right" data-ng-show="authentication.user._id == email.user._id">
+            <a class="btn btn-default" href="/#!/emails/{{email._id}}/edit">
+                <i class="glyphicon glyphicon-pencil"></i>
+            </a>
+            <a class="btn btn-danger" data-ng-click="remove();">
+                <i class="glyphicon glyphicon-trash"></i>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="panel panel-primary">
+        <div class="panel-heading">Preview</div>
+        <div class="panel-body">
+            <div ng-bind-html="htmlOutput(email)"></div>
+        </div>
+    </div>
+    <!--<div><p ng-bind-html="trust(email.description)"></p></div>-->
+    <div class="panel panel-primary">
+        <div class="panel-heading">HTML Code</div>
+        <div class="panel-body">
+            <div>{{htmlOutput(email)}}</div>
+        </div>
+    </div>
+</div>
+</section>

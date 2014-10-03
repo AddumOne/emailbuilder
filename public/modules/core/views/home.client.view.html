@@ -1,0 +1,28 @@
+<!-- <section data-ng-controller="HomeController"></section> -->
+
+<section data-ng-controller="TemplatesController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Dashboard</h1>
+    </div>
+    <div class="row">
+        <div class="col-sm-6" ng-repeat="alert in alerts">
+            <div class="row">
+                <div class="col-xs-4">
+                    <h1 class="pull-right">
+                        <a href="/#!/templates" class="btn" ng-class="alert.color">
+                            <i class="glyphicon" ng-class="alert.icon"></i>
+                        </a>
+                    </h1>
+                </div>
+                <div class="col-xs-8">
+                    <h1>{{alert.description}} ({{templates.length}})</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-8 col-xs-offset-4">
+                    <span class="text-muted">{{alert.total}} ??</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,33 @@
+<section data-ng-controller="TemplatesController" data-ng-init="findOne()">
+	<div class="page-header">
+		<h1 data-ng-bind="template.name"></h1>
+	</div>
+    <div class="page-content">
+        {{template.subject}}
+    </div>
+	<div class="pull-right" data-ng-show="authentication.user._id == template.user._id">
+		<a class="btn btn-primary" href="/#!/templates/{{template._id}}/edit">
+			<i class="glyphicon glyphicon-edit"></i>
+		</a>
+		<a class="btn btn-primary" data-ng-click="remove();">
+			<i class="glyphicon glyphicon-trash"></i>
+		</a>
+	</div>
+</section>
+<section data-ng-controller="EmailsController" data-ng-init="find()">
+    <div class="list-group">
+        <a data-ng-repeat="email in emails" data-ng-href="#!/emails/{{email._id}}" class="list-group-item">
+            <h3 class="list-group-item-heading" data-ng-bind="email.name"></h3>
+            <h4 class="list-group-item-heading" data-ng-bind="email.description"></h4>
+            <small class="list-group-item-text">
+                Posted on
+                <span data-ng-bind="email.created | date:'medium'"></span>
+                by
+                <span data-ng-bind="email.user.displayName"></span>
+            </small>
+        </a>
+    </div>
+    <div class="alert alert-warning text-center" data-ng-hide="!emails.$resolved || emails.length">
+        No Emails yet, why don't you <a href="/#!/emails/create">create one</a>?
+    </div>
+</section>
