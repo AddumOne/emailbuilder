@@ -1,3 +1,8 @@
+## MEAN Email Builder Project
+
+This app was build from the [MEAN.JS](http://meanjs.org/) stack.
+Information and general setup instructions for MEAN.js have been included for reference.
+
 [![MEAN.JS Logo](http://meanjs.org/img/logo-small.png)](http://meanjs.org/)
 
 [![Build Status](https://travis-ci.org/meanjs/mean.svg?branch=master)](https://travis-ci.org/meanjs/mean)
@@ -69,7 +74,7 @@ This command does a few things:
 After the install process is over, you'll be able to run your application using Grunt, just run grunt default task:
 
 ```
-$ grunt
+$ NODE_ENV=development grunt
 ```
 
 Your application should run on the 3000 port so in your browser just go to [http://localhost:3000](http://localhost:3000)
